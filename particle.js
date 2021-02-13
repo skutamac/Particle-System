@@ -232,6 +232,7 @@ class Particle{
     } else {
       cohesion_steer = createVector(0, 0);
     }
+    console.log(this.separationWeight, this.alignWeight, this.cohesionWeight)
     this.applyForce(sep_steer.mult(this.separationWeight));
     this.applyForce(align_steer.mult(this.alignWeight));
     this.applyForce(cohesion_steer.mult(this.cohesionWeight));
