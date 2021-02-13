@@ -16,9 +16,9 @@ class Particle{
     this.max_force = 0.05;
     this.path = [];
     this.pathlen = 30;
-    this.separationWeight = separationSlider;
-    this.alignWeight = alignSlider;
-    this.cohesionWeight = cohesionSlider;
+    this.separationWeight = separationSlider/10;
+    this.alignWeight = alignSlider/10;
+    this.cohesionWeight = cohesionSlider/10;
     this.safeRange = homeSlider;
     this.homeRotation = rotationSlider;
     this.flocking = true;

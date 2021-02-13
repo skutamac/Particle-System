@@ -18,17 +18,17 @@ function setup() {
   // Create and display the control panel to control particle beahviours
   createP('Control Panel');
   createP('  Align Strenth = ');
-  alignSlider = createSlider(0, 100, 50);
+  alignSlider = createSlider(0, 100, 10);
   createP('  Cohesion Strength');
-  cohesionSlider = createSlider(0, 100, 50);
+  cohesionSlider = createSlider(0, 100, 20);
   createP('  Separation Strength');
-  separationSlider = createSlider(0, 100, 50);
+  separationSlider = createSlider(0, 100, 40);
   createP('  Home Size');
   homeSlider = createSlider(0, 200, 100);
   createP('Maximum Speed');
   maxSpeedSlider = createSlider(0, 10, 5, 0.1);
   createP('Minimum Speed');
-  minSpeedSlider = createSlider(0, 10, 1, 0.1);
+  minSpeedSlider = createSlider(0, 10, 2, 0.1);
   createP('Orbit Stregth');
   rotationSlider = createSlider(0, HALF_PI, HALF_PI / 2, 0.1);
 
