@@ -16,9 +16,12 @@ class Particle{
     this.max_force = 0.05;
     this.path = [];
     this.pathlen = 30;
-    this.separationWeight = separationSlider/10;
-    this.alignWeight = alignSlider/10;
-    this.cohesionWeight = cohesionSlider/10;
+    // this.separationWeight = separationSlider/10;
+    // this.alignWeight = alignSlider/10;
+    // this.cohesionWeight = cohesionSlider/10;
+    this.separationWeight = 2;
+    this.alignWeight = 1;
+    this.cohesionWeight = 4;
     this.safeRange = homeSlider;
     this.homeRotation = rotationSlider;
     this.flocking = true;
@@ -232,7 +235,8 @@ class Particle{
     } else {
       cohesion_steer = createVector(0, 0);
     }
-    console.log(this.separationWeight, this.alignWeight, this.cohesionWeight)
+   console.log(this.separationWeight, this.alignWeight, this.cohesionWeight, separationSlider, alignSlider, alignSlider);
+
     this.applyForce(sep_steer.mult(this.separationWeight));
     this.applyForce(align_steer.mult(this.alignWeight));
     this.applyForce(cohesion_steer.mult(this.cohesionWeight));
