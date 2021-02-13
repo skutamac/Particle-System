@@ -11,19 +11,16 @@ class Particle{
     this.r = 5;
     this.mass = 1;
     this.col = color(x*360/width, 100 * y / height,50,1);
-    this.min_speed = minSpeedSlider;
-    this.max_speed = maxSpeedSlider;
+    this.min_speed = minSpeedSlider.value();
+    this.max_speed = maxSpeedSlider.value();
     this.max_force = 0.05;
     this.path = [];
     this.pathlen = 30;
-    // this.separationWeight = separationSlider/10;
-    // this.alignWeight = alignSlider/10;
-    // this.cohesionWeight = cohesionSlider/10;
-    this.separationWeight = 2;
-    this.alignWeight = 1;
-    this.cohesionWeight = 4;
-    this.safeRange = homeSlider;
-    this.homeRotation = rotationSlider;
+    this.separationWeight = separationSlider.value()/10;
+    this.alignWeight = alignSlider.value()/10;
+    this.cohesionWeight = cohesionSlider.value()/10;
+    this.safeRange = homeSlider.value();
+    this.homeRotation = rotationSlider.value();
     this.flocking = true;
     this.seeking = true;
     this.bouncing = true;
@@ -32,6 +29,18 @@ class Particle{
   }
 
   run(particles, home, field){
+    this.min_speed = minSpeedSlider.value();
+    this.max_speed = maxSpeedSlider.value();
+    this.separationWeight = separationSlider.value()/10;
+    this.alignWeight = alignSlider.value()/10;
+    this.cohesionWeight = cohesionSlider.value()/10;
+    this.safeRange = homeSlider.value();
+    this.homeRotation = rotationSlider.value();
+
+
+
+
+
     if(this.seeking){
       let home_steer = this.seek(home);
       this.applyForce(home_steer);
@@ -235,7 +244,7 @@ class Particle{
     } else {
       cohesion_steer = createVector(0, 0);
     }
-   console.log(this.separationWeight, this.alignWeight, this.cohesionWeight, separationSlider, alignSlider, alignSlider);
+   // console.log(this.separationWeight, this.alignWeight, this.cohesionWeight, separationSlider, alignSlider, alignSlider);
 
     this.applyForce(sep_steer.mult(this.separationWeight));
     this.applyForce(align_steer.mult(this.alignWeight));

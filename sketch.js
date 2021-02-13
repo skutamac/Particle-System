@@ -1,5 +1,5 @@
 let systems = [];
-let alignSlider, cohesionSlider, separationSlider, homeSlider, maxSpeedSlider
+let alignSlider, cohesionSlider, separationSlider, homeSlider, maxSpeedSlider, minSpeedSlider, rotationSlider;
 let newFlow = [];
 let bgcol;
 let touchHoldTime;
@@ -42,6 +42,10 @@ function setup() {
 
 
 function draw() {
+
+
+
+
 
   background(bgcol);
 
