@@ -2,6 +2,7 @@ let systems = [];
 let alignSlider, cohesionSlider, separationSlider, homeSlider, maxSpeedSlider
 let newFlow = [];
 let bgcol;
+let touchHoldTime;
 
 
 
@@ -60,6 +61,10 @@ function mouseDragged(){
 
   flowField.warp(mouseX, mouseY, 100, 20);
 
+}
+
+function touchStarted(){
+  doubleClicked();
 }
 
 
