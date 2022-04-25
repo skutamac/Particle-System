@@ -30,7 +30,7 @@ class forceField{
 				}
 				point((i + 0.5) * this.res, (j + 0.5) * this.res);
 				line((i + 0.5) * this.res, (j + 0.5) * this.res, (i + 0.5) * this.res + this.grid[i][j].x, (j + 0.5) * this.res + this.grid[i][j].y);
-				
+
 
 			}
 		}
@@ -42,7 +42,16 @@ class forceField{
 				let warpVect = createVector(wx - (i + 0.5) * this.res, wy - (j + 0.5) * this.res);
 				if (warpVect.mag() < size){
 					this.grid[i][j] = warpVect.mult(strength / warpVect.mag() * 0.5);
-				}	
+				}
+			}
+		}
+	}
+
+	reset(){
+		for (let i = 0; i < this.cols; i++){
+			for (let j = 0; j < this.rows; j++){
+				this.grid[i][j].mult(0);
+
 			}
 		}
 	}
@@ -51,8 +60,4 @@ class forceField{
 
 
 
-
-
 }
-	
-
