@@ -6,7 +6,7 @@ let bgcol;
 let touchHoldTime;
 let alignSliderName,cohesionSliderName, separationSliderName, homeSliderName, maxSpeedSliderName, minSpeedSliderName, rotationSliderName;
 
-p5.disableFriendlyErrors = true; // disables FES
+// p5.disableFriendlyErrors = true; // disables FES
 
 
 
