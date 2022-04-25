@@ -36,6 +36,8 @@ function setup() {
   // let start = createVector(100,300);
   // let end = createVector(300,100)
 
+  frameRate(30);
+
 
 }
 
