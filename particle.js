@@ -11,16 +11,16 @@ class Particle{
     this.r = 5;
     this.mass = 1;
     this.col = color(x*360/width, 100 * y / height,50,1);
-    this.min_speed = minSpeedSlider.value();
-    this.max_speed = maxSpeedSlider.value();
+    this.min_speed = 2;
+    this.max_speed = 5;
     this.max_force = 0.05;
     this.path = [];
     this.pathlen = 30;
-    this.separationWeight = separationSlider.value()/10;
-    this.alignWeight = alignSlider.value()/10;
-    this.cohesionWeight = cohesionSlider.value()/10;
-    this.safeRange = homeSlider.value();
-    this.homeRotation = rotationSlider.value();
+    this.separationWeight = 4;
+    this.alignWeight = 1;
+    this.cohesionWeight = 2;
+    this.safeRange = 100;
+    this.homeRotation = HALF_PI / 2;
     this.flocking = true;
     this.seeking = true;
     this.bouncing = true;
@@ -29,13 +29,13 @@ class Particle{
   }
 
   run(particles, home, field){
-    this.min_speed = minSpeedSlider.value();
-    this.max_speed = maxSpeedSlider.value();
-    this.separationWeight = separationSlider.value()/10;
-    this.alignWeight = alignSlider.value()/10;
-    this.cohesionWeight = cohesionSlider.value()/10;
-    this.safeRange = homeSlider.value();
-    this.homeRotation = rotationSlider.value();
+    // this.min_speed = minSpeedSlider.value();
+    // this.max_speed = maxSpeedSlider.value();
+    // this.separationWeight = separationSlider.value()/10;
+    // this.alignWeight = alignSlider.value()/10;
+    // this.cohesionWeight = cohesionSlider.value()/10;
+    // this.safeRange = homeSlider.value();
+    // this.homeRotation = rotationSlider.value();
 
 
 

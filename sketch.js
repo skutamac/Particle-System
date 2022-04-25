@@ -1,4 +1,5 @@
 let systems = [];
+let controlPanel;
 let alignSlider, cohesionSlider, separationSlider, homeSlider, maxSpeedSlider, minSpeedSlider, rotationSlider;
 let newFlow = [];
 let bgcol;
@@ -16,49 +17,36 @@ function setup() {
   canvas = createCanvas(1200,800);
   canvas.position(150,20);
 
-
   // Create and display the control panel to control particle beahviours
-
-  createP('Control Panel');
-  alignSliderName = createP('  Align Strenth = ');
-  alignSlider = createSlider(0, 100, 10);
-  cohesionSliderName = createP('  Cohesion Strength');
-  cohesionSlider = createSlider(0, 100, 20);
-  separationSliderName = createP('  Separation Strength');
-  separationSlider = createSlider(0, 100, 40);
-  homeSliderName = createP('  Home Size');
-  homeSlider = createSlider(0, 200, 100);
-  maxSpeedSliderName = createP('Maximum Speed');
-  maxSpeedSlider = createSlider(0, 10, 5, 0.1);
-  minSpeedSliderName = createP('Minimum Speed');
-  minSpeedSlider = createSlider(0, 10, 2, 0.1);
-  rotationSliderName = createP('Orbit Stregth');
-  rotationSlider = createSlider(0, HALF_PI, HALF_PI / 2, 0.1);
+  controlPanel = new ControlPanel();
+  controlPanel.createPanel();
+  controlPanel.addSlider('align','Align Weight = ', 0, 100, 10);
+  controlPanel.addSlider('cohesion','Cohesion Weight = ', 0, 100, 20);
+  controlPanel.addSlider('separation','Separation Weight = ', 0, 100, 40);
+  controlPanel.addSlider('home','Home Size = ', 0, 200, 100);
+  controlPanel.addSlider('maxSpeed','Maximum Speed = ', 0, 10, 5, 0.1);
+  controlPanel.addSlider('minSpeed',' Minimum Speed = ', 0, 10, 2, 0.1);
+  controlPanel.addSlider('rotation',' Rotation = ', 0, HALF_PI, HALF_PI / 2, HALF_PI/20);
 
 
+  //setup the force field
   flowField = new forceField(20, 0, 0);
-  let start = createVector(100,300);
-  let end = createVector(300,100)
+
+  //unknown what this code was for... flag for deletion
+  // let start = createVector(100,300);
+  // let end = createVector(300,100)
 
 
 }
 
 
 function draw() {
-
-  alignSliderName.html('  Align Strenth = ' + alignSlider.value());
-  cohesionSliderName.html('  Cohesion Strenth = ' + cohesionSlider.value());
-  separationSliderName.html('  Separation Strenth = ' + separationSlider.value());
-  homeSliderName.html('  Home Size = ' + homeSlider.value());
-  maxSpeedSliderName.html('  Maximum Speed = ' + maxSpeedSlider.value());
-  minSpeedSliderName.html('  Minimim Speed = ' + minSpeedSlider.value());
-  rotationSliderName.html('  Orbit Strenth = ' + rotationSlider.value());
-
-
-
-
-
+  // wipe screen
   background(bgcol);
+
+  //update the Control Panel
+  controlPanel.refreshPanel();
+
 
   //run the particle systems
   for (let system of systems){
@@ -78,9 +66,9 @@ function mouseDragged(){
 
 }
 
-function touchStarted(){
-  doubleClicked();
-}
+// function touchStarted(){
+//   doubleClicked();
+// }
 
 
 function doubleClicked(){
@@ -96,4 +84,13 @@ function keyPressed(){
   if (keyCode === 70){
     flowField.display = !flowField.display;
   }
+  if (keyCode === 67){
+    flowField.reset();
+  }
+
+
+
+
+
+
 }
