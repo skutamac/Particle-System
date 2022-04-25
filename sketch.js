@@ -44,8 +44,13 @@ function draw() {
   // wipe screen
   background(bgcol);
 
+  //logging
+  print(frameRate());
+
   //update the Control Panel
   controlPanel.refreshPanel();
+
+
 
 
   //run the particle systems

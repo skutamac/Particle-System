@@ -29,8 +29,7 @@ addParticle(){
 // }
 
 run(field){
-	noFill();
-	// ellipse(this.origin.x, this.origin.y, 2 * this.particles[0].safeRange);
+
 	for (let particle of this.particles){
 		particle.run(this.particles, this.origin, field);
 	}
