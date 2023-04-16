@@ -32,9 +32,6 @@ function setup() {
   //setup the force field
   flowField = new forceField(20, 0, 0);
 
-  //unknown what this code was for... flag for deletion
-  // let start = createVector(100,300);
-  // let end = createVector(300,100)
 
   frameRate(30);
 
@@ -69,7 +66,7 @@ function draw() {
 
 function mouseDragged(){
 
-  flowField.warp(mouseX, mouseY, 100, 20);
+  flowField.warp(mouseX, mouseY, 100, 40);
 
 }
 
