@@ -1,10 +1,14 @@
 let systems = [];
 let controlPanel;
 let alignSlider, cohesionSlider, separationSlider, homeSlider, maxSpeedSlider, minSpeedSlider, rotationSlider;
-let newFlow = [];
+// let newFlow = [];
 let bgcol;
 let touchHoldTime;
 let alignSliderName,cohesionSliderName, separationSliderName, homeSliderName, maxSpeedSliderName, minSpeedSliderName, rotationSliderName;
+let stepTime = 50;
+let lastStep = 0;
+let step;
+
 
 // p5.disableFriendlyErrors = true; // disables FES
 
@@ -33,18 +37,36 @@ function setup() {
   flowField = new forceField(20, 0, 0);
 
 
-  frameRate(30);
+  // frameRate(30);
 
 
 }
 
 
 function draw() {
+  //time stepping
+  if(millis() > (lastStep + stepTime)){
+    lastStep = millis();
+    step = true;
+  }
+  else {
+    step = false;
+  }
+
+  if (step == true){
+
   // wipe screen
   background(bgcol);
 
   //logging
-  print(frameRate());
+  // console.clear();
+  // console.log(frameRate());
+  let particleCount = 0;
+
+  for (let system of systems){
+    particleCount = particleCount + system.particles.length;
+  }
+  console.log(particleCount);
 
   //update the Control Panel
   controlPanel.refreshPanel();
@@ -61,6 +83,7 @@ function draw() {
   if(flowField.display){
     flowField.show();
   }
+}
 }
 
 
@@ -85,12 +108,26 @@ function doubleClicked(){
 
 
 function keyPressed(){
+  //key 'f' toggles field display
   if (keyCode === 70){
     flowField.display = !flowField.display;
   }
+  //key 'c' clears field
   if (keyCode === 67){
     flowField.reset();
   }
+  //key 'k' toggles flocking behaviour for all systems
+  if (keyCode === 75){
+    for (let system of systems){
+      system.toggleFlocking();
+    }
+    }
+  //key 'h' toggles seeking behaviour for all systems
+  if (keyCode === 72){
+    for (let system of systems){
+      system.toggleSeeking();
+    }
+    }
 
 
 

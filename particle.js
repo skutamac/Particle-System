@@ -4,7 +4,7 @@ class Particle{
     this.loc = createVector(x, y);
     this.vel = createVector(vx, vy);
     this.acc = createVector();
-    this.lifespan = 100
+    this.lifespan = 1000
     this.decayRate = 0.1;
     this.remainLife = 1
     this.shape = "ROUND";
@@ -15,7 +15,7 @@ class Particle{
     this.max_speed = 5;
     this.max_force = 0.05;
     this.path = [];
-    this.pathlen = 30;
+    this.pathlen = 10;
     this.separationWeight = 4;
     this.alignWeight = 1;
     this.cohesionWeight = 2;
@@ -29,14 +29,6 @@ class Particle{
   }
 
   run(particles, home, field){
-    // this.min_speed = minSpeedSlider.value();
-    // this.max_speed = maxSpeedSlider.value();
-    // this.separationWeight = separationSlider.value()/10;
-    // this.alignWeight = alignSlider.value()/10;
-    // this.cohesionWeight = cohesionSlider.value()/10;
-    // this.safeRange = homeSlider.value();
-    // this.homeRotation = rotationSlider.value();
-
 
 
 
